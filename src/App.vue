@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header @search="searchMovie"/>
+    <div>{{titolo}}</div>
     <Main/>
   </div>
 </template>
@@ -15,6 +16,16 @@ export default {
   components: {
     Header,
     Main
+  },
+  data(){
+    return{
+      titolo: '',
+    }
+  },
+  methods:{
+    searchMovie(element){
+      this.titolo = element;
+    }
   }
 }
 </script>
