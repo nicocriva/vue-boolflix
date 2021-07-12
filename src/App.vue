@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <Header @search="searchMovie"/>
-    <div>{{titolo}}</div>
-    <Main/>
+    <Main :movieTitle="titolo"/>
   </div>
 </template>
 

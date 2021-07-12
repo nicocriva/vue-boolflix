@@ -3,7 +3,8 @@
     
     <h3 class="title ms-3 float-start text-danger">Boolflix</h3>
     <form action="" class="float-end me-3" @keyup.enter="$emit('search', inputText)">
-        <input type="text" class="mx-2" placeholder="Inserisci titolo film"
+        <input type="text" class="mx-2" 
+            placeholder="Inserisci titolo film"
             v-model="inputText"
             />
         <button class="px-1" @click.prevent>Search</button>
