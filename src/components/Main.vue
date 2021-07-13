@@ -22,7 +22,8 @@ export default {
         apiKey: '?api_key=af93f11867caf2fb3e44dfe407851a1d',
         language: '&language=it-IT',
         query: '&query=',
-        movie: '', 
+        title: '',
+        // movie: '', 
         
       }
     },
@@ -32,7 +33,7 @@ export default {
     methods: {
       getInfo(){
         axios
-          .get(this.apiURL + this.apiKey + this.language + this.query + this.movieTitle)
+          .get(this.apiURL + this.apiKey + this.language + this.query + this.title)
           .then(element => {
             console.log(element.data.results);
           })

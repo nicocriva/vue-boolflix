@@ -22,8 +22,8 @@ export default {
     }
   },
   methods:{
-    searchMovie(element){
-      this.titolo = element;
+    searchMovie(text){
+      this.titolo = text;
     }
   }
 }
