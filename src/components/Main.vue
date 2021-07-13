@@ -1,8 +1,15 @@
 <template>
   <div class="p-3">
-    <div v-if="movieTitle.length != 0">Hai cercato: {{movieTitle}}</div>
+    <h5 class="text-secondary" v-if="movieTitle.length != 0">Hai cercato: {{movieTitle}}</h5>
     <div v-if="movieTitle.length != 0" class="float-start">
-      <div>{{movieTitle}}</div>
+      <div v-for="(item, index) in movie" :key="index">
+        <div class="my-4">
+          <div><strong>Titolo: </strong>{{item.title}}</div>
+          <div><strong>Titolo originale: </strong>{{item.original_title}}</div>
+          <div><strong>Lingua: </strong>{{item.original_language}}</div>
+          <div><strong>Voto: </strong>{{item.vote_average}}</div>
+        </div>
+      </div>
     </div>
       
   </div>
@@ -22,21 +29,23 @@ export default {
         apiKey: '?api_key=af93f11867caf2fb3e44dfe407851a1d',
         language: '&language=it-IT',
         query: '&query=',
-        title: '',
-        // movie: '', 
+        movie: [], 
         
       }
     },
-    created(){
+    updated(){
       this.getInfo();
     },
     methods: {
       getInfo(){
-        axios
-          .get(this.apiURL + this.apiKey + this.language + this.query + this.title)
-          .then(element => {
-            console.log(element.data.results);
-          })
+        if(this.movieTitle != ''){
+          axios
+            .get(this.apiURL + this.apiKey + this.language + this.query + this.movieTitle)
+            .then(element => {
+              this.movie = element.data.results;
+              })
+
+        }
       }
     }
     

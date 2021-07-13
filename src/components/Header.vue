@@ -8,7 +8,7 @@
             placeholder="Inserisci titolo film"
             v-model="inputText"
             />
-        <button class="px-1" @click.prevent>Search</button>
+        <button class="px-1" @click.prevent="$emit('search', inputText)">Search</button>
     </form>
 
   </header>
@@ -36,9 +36,11 @@ header{
         transform: translate(0, -50%);
     }
 
-    form *{
-        border-radius: 10px;
-        padding-left: 10px;
+    form{
+        input, button{
+            border-radius: 10px;
+            padding-left: 10px;
+        }
     }
 
    
