@@ -2,7 +2,7 @@
   <header class="w-100">
     
     <h3 class="title ms-3 float-start text-danger">Boolflix</h3>
-    <form action="" class="float-end me-3" @keyup.enter="$emit('search', inputText)">
+    <form action="" class="float-end me-3" @keyup="$emit('search', inputText)">
         <input type="text" class="mx-2" 
             placeholder="Inserisci titolo film"
             v-model="inputText"
