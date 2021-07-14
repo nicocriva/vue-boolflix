@@ -1,6 +1,6 @@
 <template>
   <div class="p-3">
-    <h5 class="text-secondary">Movies:</h5>
+    <h5 class="text-secondary">Movies: </h5>
     <div v-for="movie in movies" :key="movie.id">
       <div class="mb-4">
         <div>
@@ -10,7 +10,13 @@
           <strong>Titolo originale: </strong> {{movie.original_title}}
         </div>
         <div>
-          <strong>Voto: </strong> {{movie.vote_average}}
+          <!-- 
+          star-size= dimensione stelle; 
+          :read-only= click sulle stelle per modificarle se è false(default);
+          :rating= cosa votare (math.floor per arrotondare in negativo);
+          :show-rating= su impostato su true stampa il numero delle stelle visualizzate;
+          -->
+          <star-rating star-size="25" :read-only="true" :rating="Math.floor((movie.vote_average)/2)" :show-rating="false"/>
         </div>
         <div>
           <div v-if="flags.includes(movie.original_language)">
@@ -42,7 +48,7 @@
           <strong>Titolo originale: </strong> {{serie.original_name}}
         </div>
         <div>
-          <strong>Voto: </strong> {{serie.vote_average}}
+          <star-rating star-size="20" :read-only=true :rating="Math.round((serie.vote_average)/2)" :show-rating="false"/>
         </div>
         <div>
           <div v-if="flags.includes(serie.original_language)">
@@ -67,9 +73,13 @@
 </template>
 
 <script>
+import StarRating from 'vue-star-rating'
 
 export default {
     name: 'Main',
+    components:{
+      StarRating
+    },
     props:{
       movies: Array,
       series: Array,
@@ -78,7 +88,6 @@ export default {
     data(){
       return {
         flags: ['en', 'it', 'es', 'de', 'ja', 'fr'],
-        
       }
     }
     
