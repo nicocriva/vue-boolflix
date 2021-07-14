@@ -22,6 +22,12 @@
           </div>
           <div v-else><strong>Lingua: </strong> {{movie.original_language}}</div>
         </div>
+        <div class="mb-5">
+          <img v-if="movie.poster_path != null"
+          :src="'https://image.tmdb.org/t/p/' + 'w342/' + movie.poster_path" 
+          :alt="movie.title + 'poster'">
+          <img v-else src="../assets/nope-not-here.webp" alt="image not found">
+        </div>
       </div>
     </div>
     
@@ -48,6 +54,12 @@
           </div>
           <div v-else><strong>Lingua: </strong> {{serie.original_language}}</div>
         </div>
+        <div class="mb-5">
+          <img v-if="serie.poster_path != null"
+            :src="'https://image.tmdb.org/t/p/' + 'w342/' + serie.poster_path" 
+            :alt="serie.name + 'poster'">
+            <img v-else src="../assets/nope-not-here.webp" alt="image not found">
+        </div>
       </div>
     </div>
    
@@ -65,7 +77,8 @@ export default {
     },
     data(){
       return {
-        flags: ['en', 'it', 'es', 'de', 'ja', 'fr']
+        flags: ['en', 'it', 'es', 'de', 'ja', 'fr'],
+        
       }
     }
     
@@ -75,5 +88,6 @@ export default {
 <style lang="scss" scoped>
 .language-img{
   width: 30px;
+  margin: 8px 0 10px 5px;
 }
 </style>
