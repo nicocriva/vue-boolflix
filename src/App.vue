@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <Header @search="searchMovie"/>
-    <Main :searchText="titolo" :movies="moviesArr" :series="seriesArr"/>
+    <Main :searchText="titolo" 
+    :movies="moviesArr" :series="seriesArr"/>
   </div>
 </template>
 
