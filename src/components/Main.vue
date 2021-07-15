@@ -16,7 +16,7 @@
           :rating= cosa votare (math.floor per arrotondare in negativo);
           :show-rating= su impostato su true stampa il numero delle stelle visualizzate;
           -->
-          <star-rating star-size="25" :read-only="true" :rating="Math.floor((movie.vote_average)/2)" :show-rating="false"/>
+          <star-rating :star-size="20" :read-only="true" :rating="Math.floor((movie.vote_average)/2)" :show-rating="false"/>
         </div>
         <div>
           <div v-if="flags.includes(movie.original_language)">
@@ -48,7 +48,7 @@
           <strong>Titolo originale: </strong> {{serie.original_name}}
         </div>
         <div>
-          <star-rating star-size="20" :read-only=true :rating="Math.round((serie.vote_average)/2)" :show-rating="false"/>
+          <star-rating :star-size="20" :read-only=true :rating="Math.round((serie.vote_average)/2)" :show-rating="false"/>
         </div>
         <div>
           <div v-if="flags.includes(serie.original_language)">
@@ -87,7 +87,7 @@ export default {
     },
     data(){
       return {
-        flags: ['en', 'it', 'es', 'de', 'ja', 'fr'],
+        flags: ['en', 'it', 'es', 'de', 'ja', 'fr']
       }
     }
     
